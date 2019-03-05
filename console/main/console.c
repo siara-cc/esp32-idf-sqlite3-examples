@@ -270,7 +270,10 @@ void app_main() {
   // production applications.
   sdmmc_card_t* card;
   reg = esp_vfs_fat_sdmmc_mount("/sdcard", &host, &slot_config, &mount_config, &card);
-  if (reg != ESP_OK) {
+  if (reg == ESP_OK) {
+    // Card has been initialized, print its properties
+    sdmmc_card_print_info(stdout, card);
+  } else {
       if (reg == ESP_FAIL) {
           ESP_LOGE(TAG, "Failed to mount filesystem. "
               "If you want the card to be formatted, set format_if_mount_failed = true.");
@@ -278,10 +281,7 @@ void app_main() {
           ESP_LOGE(TAG, "Failed to initialize the card (%s). "
               "Make sure SD card lines have pull-up resistors in place.", esp_err_to_name(reg));
       }
-      return;
   }
-  // Card has been initialized, print its properties
-  sdmmc_card_print_info(stdout, card);
 
   sqlite3_initialize();
 

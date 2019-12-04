@@ -1,0 +1,3 @@
+[submodule "libs/esp32-idf-sqlite3"]
+	path = libs/esp32-idf-sqlite3
+	url = https://github.com/siara-cc/esp32-idf-sqlite3

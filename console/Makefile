@@ -4,6 +4,6 @@
 #
 
 PROJECT_NAME := sqlite3_console
-
+EXTRA_COMPONENT_DIRS += $(PROJECT_PATH)/../libs/esp32-idf-sqlite3/
 include $(IDF_PATH)/make/project.mk
 

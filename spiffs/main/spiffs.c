@@ -61,7 +61,8 @@ void app_main()
     
     esp_vfs_spiffs_conf_t conf = {
       .base_path = "/spiffs",
-      .partition_label = "storage",
+      //.partition_label = "storage",
+      .partition_label = NULL,
       .max_files = 5,
       .format_if_mount_failed = true
     };
@@ -146,5 +147,5 @@ void app_main()
     esp_vfs_spiffs_unregister(NULL);
     ESP_LOGI(TAG, "SPIFFS unmounted");
 
-    while(1);
+    //while(1);
 }

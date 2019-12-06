@@ -1,6 +1,6 @@
-# SPI_MMC Example
+# SD_SPI Example
 
-Uses the SPI MMC (SPI peripheral) port on ESP32 to retrieve from SQLite databases.
+Uses the SDSPI (SPI peripheral) port on ESP32 to retrieve from SQLite databases.
 
 |ESP32 pin|SPI pin|Notes|
 |:-:|:-:|:-:|

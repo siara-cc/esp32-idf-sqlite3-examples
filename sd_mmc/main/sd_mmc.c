@@ -155,5 +155,5 @@ void app_main()
     esp_vfs_fat_sdmmc_unmount();
     ESP_LOGI(TAG, "Card unmounted");
 
-   while(1);
+   //while(1);
 }

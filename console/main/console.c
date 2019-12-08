@@ -27,6 +27,8 @@
 #include <sys/unistd.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
 #include "dirent.h"
 #include "esp_err.h"
 #include "esp_log.h"
@@ -122,6 +124,7 @@ void input_string(char *str, int max_len) {
     if (ctr >= max_len)
       break;
     str[ctr] = getchar();
+    vTaskDelay(1);
   }
   str[ctr] = 0;
   printf("\n");
@@ -141,6 +144,7 @@ int input_num() {
     if (ctr >= sizeof(in))
       break;
     in[ctr] = getchar();
+    vTaskDelay(1);
   }
   printf("\n");
   in[ctr] = 0;
@@ -215,7 +219,8 @@ void app_main() {
   ESP_LOGI(TAG, "Initializing SPIFFS");
   esp_vfs_spiffs_conf_t conf = {
     .base_path = "/spiffs",
-    .partition_label = "storage",
+    //.partition_label = "storage",
+    .partition_label = NULL,
     .max_files = 5,
     .format_if_mount_failed = true
   };
@@ -355,6 +360,6 @@ void app_main() {
   esp_vfs_spiffs_unregister(NULL);
   ESP_LOGI(TAG, "SPIFFS unmounted");
 
-  while(1);
+  //while(1);
 
 }

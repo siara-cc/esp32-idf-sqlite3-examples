@@ -54,7 +54,7 @@ int db_exec(sqlite3 *db, const char *sql) {
    } else {
        printf("Operation done successfully\n");
    }
-   printf("Time taken: %lld", esp_timer_get_time()-start);
+   printf("Time taken: %lld\n", esp_timer_get_time()-start);
    return rc;
 }
 
@@ -155,5 +155,5 @@ void app_main()
     esp_vfs_fat_sdmmc_unmount();
     ESP_LOGI(TAG, "Card unmounted");
 
-   while(1);
+   //while(1);
 }

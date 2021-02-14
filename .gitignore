@@ -1,8 +1,14 @@
 .DS_Store
 sd_mmc/build
 spiffs/build
+sd_spi/build
+console/build
+sd_mmc/sdkconfig
+spiffs/sdkconfig
+sd_spi/sdkconfig
+console/sdkconfig
 sd_mmc/sdkconfig.old
 spiffs/sdkconfig.old
-console/build
+sd_spi/sdkconfig.old
 console/sdkconfig.old
 
